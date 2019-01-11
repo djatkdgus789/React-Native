@@ -1,13 +1,17 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { AppLoading, Asset, Font, Icon } from 'expo';
-import AppNavigator from './navigation/AppNavigator';
+import { Platform, StatusBar, Text, StyleSheet, View,TextInput, Dimensions } from 'react-native';
+
+const {height, width} = Dimensions.get("window");
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <StatusBar barStyle='light-content'/>
+        <Text style={styles.title}> Kawai To Do </Text>
+        <View style={styles.card}>
+          <TextInput style={styles.input} placeholder={"New To Do"}/>
+        </View>
       </View>
     )
   }
@@ -16,7 +20,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F23657",
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: "center"
+  },
+  title: {
+    color: "white",
+    fontSize: 30,
+    marginTop: 70,
+    fontWeight: "200",
+    marginBottom: 30
+  },
+  card: {
+    backgroundColor: "white",
+    flex: 1,
+    width: width - 25,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    // elevation : 0 ~ 5 in android (shadow)
   }
+
 });
